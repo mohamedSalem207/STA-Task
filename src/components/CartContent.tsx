@@ -55,7 +55,7 @@ export default function CartContent() {
             <div
               className={`py-5 border-b border-gray-500 ${opened ? "block" : "hidden"}`}
             >
-              <div className="overflow-y-auto max-h-[70vh] space-y-3">
+              <div className="overflow-y-auto pe-2 max-h-[70vh] space-y-3">
                 {state.items.map((product) => (
                   <CartProduct key={product.id} {...product} />
                 ))}
