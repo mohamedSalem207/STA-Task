@@ -3,6 +3,7 @@ import { AppDispatch } from "../../store";
 import { removeFromCart, updateQuantity } from "../../store/slices/cart";
 import { useState } from "react";
 import { handleImageError } from "../../utils/handleImageError";
+import { Tooltip } from "react-tooltip";
 
 type CartProduct = Product & {
   quantity: number;
@@ -30,7 +31,15 @@ export default function CartProduct({
       />
 
       <div className="flex items-start flex-col gap-2 w-full">
-        <h5 className="font-medium">{display_name}</h5>
+        <Tooltip id={`cart-product-${id}-tooltip`} />
+        <h5
+          className="font-medium truncate max-w-full"
+          data-tooltip-id={`cart-product-${id}-tooltip`}
+          data-tooltip-content={display_name}
+          data-tooltip-place="top"
+        >
+          {display_name}
+        </h5>
 
         <h6>
           {new Intl.NumberFormat("en-us", {
